@@ -1,0 +1,1 @@
+# basic_ubuntu_diplom
