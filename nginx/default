@@ -1,0 +1,47 @@
+upstream backend {
+	server 127.0.0.1:8080;
+	server 127.0.0.1:8081;
+	server 127.0.0.1:8082;
+}
+
+server {
+    listen 80 default_server;
+    #listen [::]:80 default_server;
+
+    #root  /var/www/html/;
+    #index index.html index.php index.nginx-debian.html;
+
+    server_name _;
+    
+    location / {
+	    proxy_pass http://backend;
+	    #proxy_pass http://backend;
+	    proxy_set_header Host $host;
+	    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+	    proxy_set_header X-Real-IP $remote_addr;
+    }
+
+    location ~ \.php$ {
+	    #root /var/www/html;
+	    #	try_files $uri =404;
+    	fastcgi_pass unix:/run/php/php-fpm.sock;
+	#include fastcgi_params;
+	#include fastcgi_conf;
+        include fastcgi.conf;
+    }
+    #    location ~ \.php$ {
+    #    try_files $uri =404;
+    #    fastcgi_pass unix:/run/php/php-fpm.sock;
+    #    fastcgi_index index.php;
+    #    include fastcgi.conf;
+    #}
+    
+    #location /icons/ {
+    #	 root "/usr/share/apache2/";
+    #}
+    #-----------------------------------------------------
+
+    #    location ~* ^.+.(jpg|jpeg|gif|png|ico|css|zip|pdf|txt|tar|js)$ {
+    #	    root /var/www/html;
+    #}
+}
