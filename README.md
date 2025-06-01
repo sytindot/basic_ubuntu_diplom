@@ -31,3 +31,5 @@ sudo apt update; sudo apt upgrade -y;
 Сервер nginx
 	install-nginx.sh устанавливаем дистрибутивы
 	nginx1.sh (устанавливаем файлы конфигурации)
+Сервер mysql
+	install-mysql (устанавливаем дистрибутивы)
