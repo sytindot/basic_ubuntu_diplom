@@ -78,7 +78,8 @@ max_binlog_size   = 100M
 # binlog_do_db		= include_database_name
 # binlog_ignore_db	= include_database_name
 
-
+log-bin = mysql-bin
+binlog_format = row
 gtid-mode=ON
 enforce-gtid-consistency
 log-replica-updates
