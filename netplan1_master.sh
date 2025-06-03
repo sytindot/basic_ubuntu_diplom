@@ -1,6 +1,6 @@
 #!/bin/bash +x
 
-netplan_file='9999-network2.yaml'
+netplan_file='netplan/9999-network2.yaml'
 cd ~/basic_ubuntu_diplom
 if (( "$?" != 0 )); then
 	echo "Ошибка при попытке перехода в каталог basic_ubuntu_diplom"
