@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-cp mysql/source/mysqld.cnf /etc/mysql/mysql.conf.d
+cp mysql/replica/mysqld.cnf /etc/mysql/mysql.conf.d
 systemctl restart mysql
 
