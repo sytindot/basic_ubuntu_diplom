@@ -82,3 +82,9 @@ sudo apt update; sudo apt upgrade -y;
 > rename_slave.sh (сервер перезагрузится)
 
 > fix_slave.sh (обновляем auto.cnf)
+
+#### Сервер mysql_master
+> mysql_master_conf.sh ( обновляем mysqld.cnf)
+
+#### Сервер mysql_slave
+> mysql_slave_conf.sh ( обновляем mysqld.cnf)
