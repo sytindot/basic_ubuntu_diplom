@@ -1,4 +1,4 @@
 #!/bin/bash
 
-hostnamectl set-hostname mysql-master
+hostnamectl set-hostname mysql-slave
 reboot

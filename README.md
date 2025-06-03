@@ -33,9 +33,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
-> netplan1.sh (копируем файл 9999-network1.yaml в папку /etc/netplan/
-
-> netplan2.sh (применяем настройки сети)
+> netplan1.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.220)
 #### Сервер apachi2
@@ -44,5 +42,43 @@ sudo apt update; sudo apt upgrade -y;
 #### Сервер nginx
 > install-nginx.sh устанавливаем дистрибутивы
 > nginx1.sh (устанавливаем файлы конфигурации)
-#### Сервер mysql
+
+#### Выполняем clon Ubuntu_Sample на VM
+> Name: Mysql_master
+
+> MAC Address Policy: Generate new MAC address for all network adapters
+
+> ssh user@localhost -p 2233 (Подключаемся к серверу)
+
+> git clone git@github.com:sytindot/basic_ubuntu_diplom.git
+
+> cd ~/basic_ununtu_diplom
+
+> netplan_master.sh (применяем настройки сети)
+
+> ip a (должны увидеть ip 192.168.0.221)
+
+#### Сервер mysql_master
 > install-mysql (устанавливаем дистрибутивы)
+
+> mysql_source.sh (настраиваем source)
+
+#### Выполняем clon Mysql_master на VM
+> Name: Mysql_slave
+
+> MAC Address Policy: Generate new MAC address for all network adapters
+
+> ssh user@localhost -p 2234 (Подключаемся к серверу)
+
+> git clone git@github.com:sytindot/basic_ubuntu_diplom.git
+
+> cd ~/basic_ununtu_diplom
+
+> netplan_slave.sh (применяем настройки сети)
+
+> ip a (должны увидеть ip 192.168.0.222)
+
+#### Сервер mysql_slave
+> rename_slave.sh (сервер перезагрузится)
+
+> fix_slave.sh (обновляем auto.cnf)
