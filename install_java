@@ -1,0 +1,85 @@
+apt install default-jdk -y
+apt install nginx -y
+apt install unzip -y
+cd
+unzip elk_8.9_deb-224190-ae521e.zip
+cd elk-8.9-deb/
+dpkg -i elasticsearch-8.9.1-amd64.deb 
+sudo -i
+cd /etc/elasticsearch/jvm.options.d/
+vim jvm.options
+-Xms1g
+-Xmx1g
+cd /home/user/elk-8.9-deb/
+vim /etc/elasticsearch/elasticsearch.yml
+/xpack.se
+4 false
+http.host: 0.0.0.0
+:wq
+systemctl daemon-reload
+systemctl enable --now elasticsearch.service
+curl http://localhost:9200
+dpkg -i kibana-8.9.1-amd64.deb
+vim /etc/kibana/kibana.yml
+server.host: "0.0.0.0"
+:wq
+systemctl daemon-reload
+systemctl enable --now kibana.service
+service kibana restart
+dpkg -i logstash-8.9.1-amd64.deb
+systemctl enable --now logstash.service
+vim /etc/logstash/logstash.yml
+path.config: /etc/logstash/conf.d
+:wq
+vim /etc/logstash/conf.d/logstash-nginx-es.conf
+input {
+    beats {
+        port => 5400
+    }
+}
+
+filter {
+ grok {
+   match => [ "message" , "%{COMBINEDAPACHELOG}+%{GREEDYDATA:extra_fields}"]
+   overwrite => [ "message" ]
+ }
+ mutate {
+   convert => ["response", "integer"]
+   convert => ["bytes", "integer"]
+   convert => ["responsetime", "float"]
+ }
+ date {
+   match => [ "timestamp" , "dd/MMM/YYYY:HH:mm:ss Z" ]
+   remove_field => [ "timestamp" ]
+ }
+ useragent {
+   source => "agent"
+ }
+}
+output {
+ elasticsearch {
+   hosts => ["http://localhost:9200"]
+   #cacert => '/etc/logstash/certs/http_ca.crt'
+   #ssl => true
+   index => "weblogs-%{+YYYY.MM.dd}"
+   document_type => "nginx_logs"
+ }
+ stdout { codec => rubydebug }
+}
+:wq
+systemctl restart logstash.service
+
+dpkg -i filebeat-8.9.1-amd64.deb
+vim /etc/filebeat/filebeat.yml
+- type: filestream
+  paths:
+    - /var/log/nginx/*.log
+
+  enabled: true
+  exclude_files: ['.gz$']
+  prospector.scanner.exclude_files: ['.gz$']
+...
+output.logstash:
+  hosts: ["localhost:5400"]
+  :wq
+systemctl restart filebeat.service
