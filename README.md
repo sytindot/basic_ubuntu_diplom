@@ -88,3 +88,6 @@ sudo apt update; sudo apt upgrade -y;
 
 #### Сервер mysql_slave
 > mysql_slave_conf.sh ( обновляем mysqld.cnf)
+#### Сервер  elk
+> server.host: "0.0.0.0" - kibana vim /etc/kibana/kibana.yml
+

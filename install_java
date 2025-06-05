@@ -27,6 +27,7 @@ server.host: "0.0.0.0"
 systemctl daemon-reload
 systemctl enable --now kibana.service
 service kibana restart
+# ------------------------------------------
 dpkg -i logstash-8.9.1-amd64.deb
 systemctl enable --now logstash.service
 vim /etc/logstash/logstash.yml
