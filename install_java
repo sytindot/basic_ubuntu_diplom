@@ -19,6 +19,7 @@ http.host: 0.0.0.0
 systemctl daemon-reload
 systemctl enable --now elasticsearch.service
 curl http://localhost:9200
+# ------------------------------------------
 dpkg -i kibana-8.9.1-amd64.deb
 vim /etc/kibana/kibana.yml
 server.host: "0.0.0.0"
