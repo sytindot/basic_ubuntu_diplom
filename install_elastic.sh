@@ -11,4 +11,5 @@ cp elasticsearch.yml /etc/elasticsearch/
 systemctl daemon-reload
 systemctl enable --now elasticsearch.service
 systemctl start elasticsearch.service
+curl http://localhost:9200
 
