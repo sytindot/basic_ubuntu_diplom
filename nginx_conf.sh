@@ -6,4 +6,5 @@ systemctl restart nginx.service
 curl localhost | grep "Apache2 Default Page"
 curl localhost | grep "Apache2 Default Page"
 curl localhost | grep "Apache2 Default Page"
+systemctl enable --now nginx.service
 systemctl restart nginx.service
