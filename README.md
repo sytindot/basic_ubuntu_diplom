@@ -96,7 +96,7 @@ sudo apt update; sudo apt upgrade -y;
 > ip a (должны увидеть ip 192.168.0.221)
 
 
-> mysql_master_conf.sh (устанавливаем config mysqu)
+> mysql_master_conf.sh (устанавливаем config mysql)
 
 > mysql_source.sh (настраиваем source)
 
@@ -108,6 +108,7 @@ sudo apt update; sudo apt upgrade -y;
 
 
 
+ 
 
 
 
@@ -127,9 +128,8 @@ sudo apt update; sudo apt upgrade -y;
 
 > ip a (должны увидеть ip 192.168.0.222)
 
-> mysql_slave_conf.sh ( обновляем mysqld.cnf)
+> mysql_slave_conf.sh ( обновляем mysqld.cnf перезагрузка)
 
-> mysql_source.sh
 
 > mysql_get_public_key.sh
 
