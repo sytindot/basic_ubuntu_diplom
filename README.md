@@ -80,14 +80,16 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
+> apt install mysql_server-8.0
+
+
+#### Сервер mysql_master
 > netplan_master.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.221)
 
-#### Сервер mysql_master
-> apt install mysql-server-8.0
 
-> mysql_mawter_conf.sh (устанавливаем config mysqu)
+> mysql_master_conf.sh (устанавливаем config mysqu)
 
 > mysql_source.sh (настраиваем source)
 
@@ -107,6 +109,8 @@ sudo apt update; sudo apt upgrade -y;
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
+> Change port to 2234
+
 > ssh user@localhost -p 2234 (Подключаемся к серверу)
 
 
@@ -118,6 +122,11 @@ sudo apt update; sudo apt upgrade -y;
 
 > mysql_slave_conf.sh ( обновляем mysqld.cnf)
 
+> mysql_get_public_key.sh
+
+> mysql_slave_gtid.sh
+
+> mysql_status_replica.sh
 
 
 
