@@ -80,7 +80,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
-> apt install mysql_server-8.0
+> apt install mysql-server-8.0
 
 
 
