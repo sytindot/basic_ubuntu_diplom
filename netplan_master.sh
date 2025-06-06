@@ -9,7 +9,7 @@ fi
 # echo "check file netplan_file: " $netplan_file
 # echo "$(ls $netplan_file)"
 if [ -f "$netplan_file" ]; then
-	rm /etc/netplan *
+	rm /etc/netplan/*
 	cp $netplan_file /etc/netplan
 	if (( "$?" == 0 )); then
 		netplan apply
