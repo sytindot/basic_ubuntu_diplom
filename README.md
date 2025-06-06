@@ -21,27 +21,29 @@ sudo apt update; sudo apt upgrade -y;
 
 > sudo hostnamectl set-hostname ubuntu_d_master (переименовываем сервер)
 
-> ssh-keygen -t ed25519 -> Enter(4) (генерируем ключ для доступа к git)
+> ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
 
-> cat ~/.ssh/id_ed255199.pub (выводим публичный ключ и копируем)
+> cat ~/.ssh/id_ed25519.pub (выводим публичный ключ и копируем)
 #### Добавляем ssh ключ в git репозиторий.
 > https://github.com/settings/keys -> New SSH key -> Title: ubuntu_diplom_master -> Key: (Вставляем сам ключ) -> Add SSH key
 #### Подключаемся к серверу.
 > ssh user@localhost -p 2232  -> 1
 
+> ssh -T git@github.com проверка соединия с github
+
 > git clone git@github.com:sytindot/basic_ubuntu_diplom.git
 
 > cd ~/basic_ununtu_diplom
 
-> netplan1.sh (применяем настройки сети)
+> netplan_nginx.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.220)
 #### Сервер apachi2
-> install-apache2.sh устанавливаем дистибутивы
+> install_apache2.sh устанавливаем дистибутивы
 > apache1.sh копируем конфиги
 #### Сервер nginx
-> install-nginx.sh устанавливаем дистрибутивы
-> nginx1.sh (устанавливаем файлы конфигурации)
+> install_nginx.sh устанавливаем дистрибутивы
+> nginx.sh (устанавливаем файлы конфигурации)
 
 #### Выполняем clon Ubuntu_Sample на VM
 > Name: Mysql_master
