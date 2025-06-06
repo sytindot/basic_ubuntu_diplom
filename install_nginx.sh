@@ -2,6 +2,6 @@
 
 
 #apt install nginx -y
-systemctl enable nginx
-systemctl start nginx
-systemctl status nginx
+systemctl enable --now nginx
+#systemctl start nginx
+#systemctl status nginx
