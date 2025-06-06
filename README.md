@@ -83,6 +83,13 @@ sudo apt update; sudo apt upgrade -y;
 > apt install mysql_server-8.0
 
 
+
+
+
+
+
+
+
 #### Сервер mysql_master
 > netplan_master.sh (применяем настройки сети)
 
@@ -114,13 +121,15 @@ sudo apt update; sudo apt upgrade -y;
 > ssh user@localhost -p 2234 (Подключаемся к серверу)
 
 
-> cd ~/basic_ununtu_diplom
+> cd ~/basic_ubuntu_diplom
 
 > netplan_slave.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.222)
 
 > mysql_slave_conf.sh ( обновляем mysqld.cnf)
+
+> mysql_source.sh
 
 > mysql_get_public_key.sh
 

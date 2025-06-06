@@ -8,8 +8,6 @@ ip a
 
 bash mysql_master_conf.sh
 
-bash mysql_source.sh
 
-systemctl restart mysql.service
 
 
