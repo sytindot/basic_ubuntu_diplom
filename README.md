@@ -40,17 +40,41 @@ sudo apt update; sudo apt upgrade -y;
 > ip a (должны увидеть ip 192.168.0.220)
 #### Сервер apachi2
 > install_apache2.sh устанавливаем дистибутивы
-> apache1.sh копируем конфиги
+> apache_conf.sh копируем конфиги
+> sudo systemctl status apache2.service
+> sudo systemctl restart apache2.service
+> sudo systemctl status apache2.service
 #### Сервер nginx
 > install_nginx.sh устанавливаем дистрибутивы
 > nginx.sh (устанавливаем файлы конфигурации)
+
+
+
+
+
+
+
+
+
 
 #### Выполняем clon Ubuntu_Sample на VM
 > Name: Mysql_master
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
+
+> Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2232, Guest Port: 22 -> OK 
+
 > ssh user@localhost -p 2233 (Подключаемся к серверу)
+
+> ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
+
+> cat ~/.ssh/id_ed25519.pub (выводим публичный ключ и копируем)
+#### Добавляем ssh ключ в git репозиторий.
+
+> https://github.com/settings/keys -> New SSH key -> Title: ubuntu_diplom_master -> Key: (Вставляем сам ключ) -> Add SSH key
+
+> Settings -> Network -> Adapter2 -> Enable Network Adapter (V), Attached to: Bridged Adapter -> OK (Активируем второй ethernet port.)
 
 > git clone git@github.com:sytindot/basic_ubuntu_diplom.git
 
@@ -61,9 +85,22 @@ sudo apt update; sudo apt upgrade -y;
 > ip a (должны увидеть ip 192.168.0.221)
 
 #### Сервер mysql_master
-> install-mysql (устанавливаем дистрибутивы)
+> apt install mysql-server-8.0
+
+> mysql_mawter_conf.sh (устанавливаем config mysqu)
 
 > mysql_source.sh (настраиваем source)
+
+
+
+
+
+
+
+
+
+
+
 
 #### Выполняем clon Mysql_master на VM
 > Name: Mysql_slave
@@ -72,7 +109,6 @@ sudo apt update; sudo apt upgrade -y;
 
 > ssh user@localhost -p 2234 (Подключаемся к серверу)
 
-> git clone git@github.com:sytindot/basic_ubuntu_diplom.git
 
 > cd ~/basic_ununtu_diplom
 
@@ -80,16 +116,23 @@ sudo apt update; sudo apt upgrade -y;
 
 > ip a (должны увидеть ip 192.168.0.222)
 
-#### Сервер mysql_slave
-> rename_slave.sh (сервер перезагрузится)
-
-> fix_slave.sh (обновляем auto.cnf)
-
-#### Сервер mysql_master
-> mysql_master_conf.sh ( обновляем mysqld.cnf)
-
-#### Сервер mysql_slave
 > mysql_slave_conf.sh ( обновляем mysqld.cnf)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #### Сервер  elk
 > server.host: "0.0.0.0" - kibana vim /etc/kibana/kibana.yml
 
