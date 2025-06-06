@@ -8,4 +8,5 @@ ln -s ../sites-available/000-default.conf 000-default.conf
 ln -s ../sites-available/001-default.conf 001-default.conf
 ln -s ../sites-available/002-default.conf 002-default.conf
 
+systemctl enable --now apache2
 systemctl restart apache2.service
