@@ -8,8 +8,8 @@ echo -e "-Xms1g\n-Xmx1g" >   /etc/elasticsearch/jvm.options.d/jvm.options
 cd /home/user/basic_ubuntu_diplom
 cp elasticsearch.yml /etc/elasticsearch/
 
-systemctl daemon-reload
 systemctl enable --now elasticsearch.service
+systemctl daemon-reload
 systemctl start elasticsearch.service
 curl http://localhost:9200
 

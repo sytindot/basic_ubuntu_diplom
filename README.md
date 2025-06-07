@@ -152,5 +152,18 @@ sudo apt update; sudo apt upgrade -y;
 
 
 #### Сервер  elk
+> install_elk.sh (Устанавливаем prometheus и зависимости для grafana, загружаем дистрибутивы для elk)
+
+> install_grafana.sh( monitoring готов http://192.168.0.223:3000 )
+
+> install_elastic.sh
+
+> 
+
+
+
+
+
+
 > server.host: "0.0.0.0" - kibana vim /etc/kibana/kibana.yml
 
