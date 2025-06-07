@@ -6,24 +6,28 @@
 
 В наличии сервер на VM - Ubuntu1 установлен из дистрибутива. Установлены обновления:
 sudo apt update; sudo apt upgrade -y;
-#### Выполняем clon.  
-> Name: Ubuntu_D_Master
+#### Выполняем clon Ubuntu_Sample  
+> Name: Nginx
 
 > MAC Address Policy: Generate new MAC address for all network adapters
+
 #### Пробрасывает порт для ssh.
 > Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2232, Guest Port: 22 -> OK
+
 #### Активируем второй ethernet port.
 > Settings -> Network -> Adapter2 -> Enable Network Adapter (V), Attached to: Bridged Adapter -> OK
+
 #### Подключаемся к серверу.
 > ssh user@localhost -p 2232 -> yes -> 1
 
 > ping 8.8.8.8, ^C+c (проверка доступа в интернет)
 
-> sudo hostnamectl set-hostname ubuntu_d_master (переименовываем сервер)
+> sudo hostnamectl set-hostname nginx (переименовываем сервер)
 
 > ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
 
 > cat ~/.ssh/id_ed25519.pub (выводим публичный ключ и копируем)
+
 #### Добавляем ssh ключ в git репозиторий.
 > https://github.com/settings/keys -> New SSH key -> Title: ubuntu_diplom_master -> Key: (Вставляем сам ключ) -> Add SSH key
 #### Подключаемся к серверу.
@@ -35,30 +39,27 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
+> install_apache2.sh устанавливаем дистибутивы
+
+> install_nginx.sh устанавливаем дистрибутивы
+
+-----------------------------------------------------------
 > netplan_nginx.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.220)
-#### Сервер apachi2
-> install_apache2.sh устанавливаем дистибутивы
+
+
 > apache_conf.sh копируем конфиги
-> sudo systemctl status apache2.service
-> sudo systemctl restart apache2.service
-> sudo systemctl status apache2.service
-#### Сервер nginx
-> install_nginx.sh устанавливаем дистрибутивы
-> nginx.sh (устанавливаем файлы конфигурации)
 
+> download_filebeat.sh
 
+> nginx_conf.sh
 
-
-
-
-
-
-
+> nginx.sh (сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов)
+-------------------------------------------------------------
 
 #### Выполняем clon Ubuntu_Sample на VM
-> Name: Mysql_master
+> Name: master
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
@@ -82,15 +83,8 @@ sudo apt update; sudo apt upgrade -y;
 
 > apt install mysql-server-8.0
 
-
-
-
-
-
-
-
-
-#### Сервер mysql_master
+-----------------------------------------------------------
+#### Сервер master
 > netplan_master.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.221)
@@ -100,20 +94,8 @@ sudo apt update; sudo apt upgrade -y;
 
 > mysql_source.sh (настраиваем source)
 
-
-
-
-
-
-
-
-
- 
-
-
-
 #### Выполняем clon Mysql_master на VM
-> Name: Mysql_slave
+> Name: slave
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
@@ -121,6 +103,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > ssh user@localhost -p 2234 (Подключаемся к серверу)
 
+> git pull
 
 > cd ~/basic_ubuntu_diplom
 
@@ -138,16 +121,11 @@ sudo apt update; sudo apt upgrade -y;
 > mysql_status_replica.sh
 
 
+####сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов до и после перезгрузки
 
+> master.sh master1.sh
 
-
-
-
-
-
-
-
-
+> slave.sh slave1.sh
 
 
 
@@ -158,12 +136,15 @@ sudo apt update; sudo apt upgrade -y;
 
 > install_elastic.sh
 
-> 
+> install_kibana.sh 
+
+> install_logstash.sh
+
+> install_filebeat.sh
+
+> elk.sh( суммарный скрипт по elk ; filebeat устанавиваем на nginx сервер)
 
 
 
 
-
-
-> server.host: "0.0.0.0" - kibana vim /etc/kibana/kibana.yml
 

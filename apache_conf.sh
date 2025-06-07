@@ -8,5 +8,6 @@ ln -s ../sites-available/000-default.conf 000-default.conf
 ln -s ../sites-available/001-default.conf 001-default.conf
 ln -s ../sites-available/002-default.conf 002-default.conf
 
+cd /home/user; mkdir elk-8.9-deb
 systemctl enable --now apache2
 systemctl restart apache2.service
