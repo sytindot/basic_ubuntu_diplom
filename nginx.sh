@@ -1,8 +1,8 @@
 #!/bin/bash
 
-netplan_nginx.sh
+bash netplan_nginx.sh
 ip a
 
-apache_conf.sh
+bash apache_conf.sh
 
-nginx_conf.sh
+bash nginx_conf.sh
