@@ -85,6 +85,7 @@ sudo apt update; sudo apt upgrade -y;
 > apt install mysql-server-8.0
 
 -----------------------------------------------------------
+#### Конфигурируем сервер mysql master
 #### Сервер master
 > netplan_master.sh (применяем настройки сети)
 
@@ -95,6 +96,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > mysql_source.sh (настраиваем source)
 
+#### Конфигурируем сервер mysql slave
 #### Выполняем clon Mysql_master на VM
 > Name: slave
 
@@ -129,6 +131,7 @@ sudo apt update; sudo apt upgrade -y;
 > slave.sh slave1.sh
 
 
+#### Конфигурируем сервер monitoring and loging
 
 #### Сервер  elk
 > install_elk.sh (Устанавливаем prometheus и зависимости для grafana, загружаем дистрибутивы для elk)
