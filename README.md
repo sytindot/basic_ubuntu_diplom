@@ -121,7 +121,7 @@ sudo apt update; sudo apt upgrade -y;
 > mysql_status_replica.sh
 
 
-####сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов до и после перезгрузки
+#### сумарный скрипт по mysql master  и  slave  при условии установленных дистрибутивов до и после перезгрузки
 
 > master.sh master1.sh
 
