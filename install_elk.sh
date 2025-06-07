@@ -4,7 +4,10 @@
 apt install default-jdk -y
 #apt install nginx -y
 apt install unzip -y
-cd
+apt install prometheus prometheus-node-exporter
+apt-get install -y adduser libfontconfig1 musl
+
+cd /home/user
 unzip elk_8.9_deb-224190-ae521e.zip
 cd elk-8.9-deb/
 
