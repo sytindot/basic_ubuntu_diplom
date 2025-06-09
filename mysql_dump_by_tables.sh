@@ -3,6 +3,7 @@
 
 mkdir -p  /home/user/database/dump
 
+cd /home/user/database/dump
 
 
 for s in `mysql -e "SHOW DATABASES"`;
