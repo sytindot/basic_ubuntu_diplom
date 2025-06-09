@@ -8,7 +8,7 @@ cd /home/user/database/dump
 
 for s in `mysql -e "SHOW DATABASES"`;
 do
-if [[ $s -eq 'Database' ]]; then
+if [[ $s == 'Database' ]]; then
 	continue
 fi
 mkdir $s;
