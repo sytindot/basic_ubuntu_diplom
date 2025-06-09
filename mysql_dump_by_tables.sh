@@ -1,5 +1,10 @@
 #!/etc/bash
 
+
+mkdir -r  /home/user/database/dump
+
+
+
 for s in `mysql -e "SHOW DATABASES"`;
 do
 mkdir $s;
