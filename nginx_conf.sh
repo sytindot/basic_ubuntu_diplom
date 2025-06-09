@@ -8,3 +8,4 @@ curl localhost | grep "Apache2 Default Page"
 curl localhost | grep "Apache2 Default Page"
 systemctl enable --now nginx.service
 systemctl restart nginx.service
+bash install_filebeat2.sh
