@@ -1,7 +1,7 @@
 #!/etc/bash
 
 
-mkdir -r  /home/user/database/dump
+mkdir -p  /home/user/database/dump
 
 
 
