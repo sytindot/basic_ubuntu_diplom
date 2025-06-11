@@ -4,7 +4,7 @@
 
 ### 1 web server
 
-В наличии сервер на VM - Ubuntu1 установлен из дистрибутива. Установлены обновления:
+В наличии сервер на VM - Ubuntu_Sample установлен из дистрибутива. Установлены обновления:
 sudo apt update; sudo apt upgrade -y;
 #### Выполняем clon Ubuntu_Sample  
 > Name: Nginx
@@ -18,31 +18,39 @@ sudo apt update; sudo apt upgrade -y;
 > Settings -> Network -> Adapter2 -> Enable Network Adapter (V), Attached to: Bridged Adapter -> OK
 
 #### Подключаемся к серверу.
-> ssh user@localhost -p 2232 -> yes -> 1
+> ssh user@localhost -p 2242 -> yes -> 1
 
-> ping 8.8.8.8, ^C+c (проверка доступа в интернет)
+#### проверка доступа в интернет
+> ping 8.8.8.8, ^C+c ()
 
-> sudo hostnamectl set-hostname nginx (переименовываем сервер)
+#### переименовываем сервер
+> sudo hostnamectl set-hostname nginx ()
 
-> ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
+#### генерируем ключ для доступа к git
+> ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) ()
 
-> cat ~/.ssh/id_ed25519.pub (выводим публичный ключ и копируем)
+#### выводим публичный ключ и копируем
+> cat ~/.ssh/id_ed25519.pub ()
 
 #### Добавляем ssh ключ в git репозиторий.
 > https://github.com/settings/keys -> New SSH key -> Title: ubuntu_diplom_master -> Key: (Вставляем сам ключ) -> Add SSH key
 #### Подключаемся к серверу.
-> ssh user@localhost -p 2232  -> 1
+> ssh user@localhost -p 2242  -> 1
 
-> ssh -T git@github.com проверка соединия с github
+#### проверка соединия с github
 
+> ssh -T git@github.com 
 > git clone git@github.com:sytindot/basic_ubuntu_diplom.git
 
 > cd ~/basic_ununtu_diplom
 
-> install_apache2.sh устанавливаем дистибутивы
+#### устанавливаем дистибутивы
 
-> install_nginx.sh устанавливаем дистрибутивы
+> install_apache2.sh 
 
+> install_nginx.sh 
+
+> create_dir.sh
 -----------------------------------------------------------
 #### Конфигурируем сервер nginx
 > netplan_nginx.sh (применяем настройки сети)
@@ -50,15 +58,21 @@ sudo apt update; sudo apt upgrade -y;
 > ip a (должны увидеть ip 192.168.0.220)
 
 
-> apache_conf.sh копируем конфиги
-
-> download_filebeat.sh
+#### копируем конфиги
+> apache_conf.sh 
 
 > nginx_conf.sh
 
-> nginx.sh (сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов)
--------------------------------------------------------------
 
+#### Переходим на домашний хост и копируем файлы
+> download_filebeat.sh
+
+
+#### сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов
+> nginx.sh ()
+
+-------------------------------------------------------------
+-------------------------------------------------------------
 #### Выполняем clon Ubuntu_Sample на VM
 > Name: master
 
@@ -67,7 +81,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2232, Guest Port: 22 -> OK 
 
-> ssh user@localhost -p 2233 (Подключаемся к серверу)
+> ssh user@localhost -p 2243 (Подключаемся к серверу)
 
 > ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
 
@@ -82,11 +96,18 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
+> git pull
+
 > apt install mysql-server-8.0
 
 -----------------------------------------------------------
+#### Выполняем clon master на VM
+> Name: clone
+
+> ssh: 2244
+----------------------------------------------------------
 #### Конфигурируем сервер mysql master
-#### Сервер master
+
 > netplan_master.sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.221)
@@ -95,36 +116,36 @@ sudo apt update; sudo apt upgrade -y;
 > mysql_master_conf.sh (устанавливаем config mysql)
 
 > mysql_source.sh (настраиваем source)
-
+----------------------------------------------------------
 #### Конфигурируем сервер mysql slave
-#### Выполняем clon Mysql_master на VM
-> Name: slave
 
-> MAC Address Policy: Generate new MAC address for all network adapters
+> ssh user@localhost -p 2234 
 
-> Change port to 2234
-
-> ssh user@localhost -p 2234 (Подключаемся к серверу)
-
-> git pull
 
 > cd ~/basic_ubuntu_diplom
 
-> netplan_slave.sh (применяем настройки сети)
+> netplan_slave.sh 
 
 > ip a (должны увидеть ip 192.168.0.222)
 
-> mysql_slave_conf.sh ( обновляем mysqld.cnf перезагрузка)
 
+####  обновляем mysqld.cnf перезагрузка
+> mysql_slave_conf.sh ()
+
+#### Создаем пользователя repl
+> mysql_master_conf.sh ()
 
 > mysql_get_public_key.sh
 
 > mysql_slave_gtid.sh
 
 > mysql_status_replica.sh
+-------------------------------------------------------
 
-
-#### сумарный скрипт по mysql master  и  slave  при условии установленных дистрибутивов до и после перезгрузки
+#### Переходим на домашний хост и копируем файлы
+> download_test_db.sh
+--------------------------------------------------------
+#### сумарный скрипт по mysql master и slave при условии установленных дистрибутивов до и после перезгрузки
 
 > master.sh master1.sh
 

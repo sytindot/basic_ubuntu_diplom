@@ -4,5 +4,5 @@ cd /home/user
 mkdir database
 mkdir database/dump
 mkdir test_db-master
-#mkdir elk-8.9-deb
+mkdir elk-8.9-deb
 
