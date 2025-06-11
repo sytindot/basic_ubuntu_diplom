@@ -85,13 +85,12 @@ sudo apt update; sudo apt upgrade -y;
 #### Переходим на домашний хост и копируем файлы
 > download_filebeat.sh
 
-#### на nginx
-> install_filebeat.sh
+
 #### сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов
 > nginx.sh 
 -------------------------------------------------------------
 -------------------------------------------------------------
-#### Выполняем clon Engix Sample на VM
+#### Выполняем clon Engix Empty на VM
 > Name: Master Empty
 
 > MAC Address Policy: Generate new MAC address for all network adapters
@@ -106,14 +105,15 @@ sudo apt update; sudo apt upgrade -y;
 > master_empty.sh
 
 -----------------------------------------------------------
-#### Выполняем clone Master Empty на VM
+#### Выполняем Master Empty на VM
 > Name: master
 
+> ssh: 2244
 ----------------------------------------------------------
 #### Выполняем Master Empty на VM
 > Name: clone
 
-> ssh: 2244
+> ssh: 2245
 ----------------------------------------------------------
 #### Конфигурируем сервер mysql master
 
