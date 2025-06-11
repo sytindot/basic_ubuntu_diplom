@@ -1,3 +1,3 @@
 #!/bin/bash
 
-mysql < /home/user/database/test_db/employees.sql
+mysql < /home/user/test_db/employees.sql
