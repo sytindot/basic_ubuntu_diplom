@@ -4,15 +4,16 @@
 
 ### 1 web server
 
-В наличии сервер на VM - Ubuntu_Sample установлен из дистрибутива. Установлены обновления:
-sudo apt update; sudo apt upgrade -y;
-#### Выполняем clon Ubuntu_Sample  
-> Name: Nginx
+## Готовим образ для mysql и ngin
+
+#### Выполняем clon Ubuntu_Sample на VM
+> Name: Ubunty Empty
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
+
 #### Пробрасывает порт для ssh.
-> Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2232, Guest Port: 22 -> OK
+> Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2242, Guest Port: 22 -> OK
 
 #### Активируем второй ethernet port.
 > Settings -> Network -> Adapter2 -> Enable Network Adapter (V), Attached to: Bridged Adapter -> OK
@@ -23,8 +24,10 @@ sudo apt update; sudo apt upgrade -y;
 #### проверка доступа в интернет
 > ping 8.8.8.8, ^C+c ()
 
+=================
 #### переименовываем сервер
 > sudo hostnamectl set-hostname nginx ()
+=================
 
 #### генерируем ключ для доступа к git
 > ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) ()
@@ -46,11 +49,19 @@ sudo apt update; sudo apt upgrade -y;
 
 #### устанавливаем дистибутивы
 
+> create_dir.sh
+
+sudo apt update; sudo apt upgrade -y;
+---------------------------------------------------------------
+#### Выполняем clon Ubuntu_Sample  
+> Name: Nginx
+
+> MAC Address Policy: Generate new MAC address for all network adapters
+
 > install_apache2.sh 
 
 > install_nginx.sh 
 
-> create_dir.sh
 -----------------------------------------------------------
 #### Конфигурируем сервер nginx
 > netplan_nginx.sh (применяем настройки сети)
