@@ -91,42 +91,36 @@ sudo apt update; sudo apt upgrade -y;
 
 -------------------------------------------------------------
 -------------------------------------------------------------
-#### Выполняем clon Ubuntu_Sample на VM
-> Name: master
+#### Выполняем clon Engix Empty на VM
+> Name: Master Empty
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
 
-> Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2232, Guest Port: 22 -> OK 
-
-> ssh user@localhost -p 2243 (Подключаемся к серверу)
-
-> ssh-keygen -t ed25519  -C "sytindot@yandex.ru"-> Enter(4) (генерируем ключ для доступа к git)
-
-> cat ~/.ssh/id_ed25519.pub (выводим публичный ключ и копируем)
-#### Добавляем ssh ключ в git репозиторий.
-
-> https://github.com/settings/keys -> New SSH key -> Title: ubuntu_diplom_master -> Key: (Вставляем сам ключ) -> Add SSH key
-
-> Settings -> Network -> Adapter2 -> Enable Network Adapter (V), Attached to: Bridged Adapter -> OK (Активируем второй ethernet port.)
-
-> git clone git@github.com:sytindot/basic_ubuntu_diplom.git
+> Settings -> Network -> Advanced -> Port Forwarding -> + -> Name: ssh, Host Port: 2243, Guest Port: 22 -> OK 
 
 > cd ~/basic_ununtu_diplom
 
 > git pull
 
-> apt install mysql-server-8.0
+> master_empty.sh
 
 -----------------------------------------------------------
-#### Выполняем clon master на VM
-> Name: clone
+#### Выполняем Master Empty на VM
+> Name: master
 
 > ssh: 2244
 ----------------------------------------------------------
+#### Выполняем Master Empty на VM
+> Name: clone
+
+> ssh: 2245
+----------------------------------------------------------
 #### Конфигурируем сервер mysql master
 
-> netplan_master.sh (применяем настройки сети)
+> netplan_master.
+
+sh (применяем настройки сети)
 
 > ip a (должны увидеть ip 192.168.0.221)
 
@@ -158,10 +152,6 @@ sudo apt update; sudo apt upgrade -y;
 > mysql_slave_gtid.sh
 
 > mysql_status_replica.sh
--------------------------------------------------------
-
-#### Переходим на домашний хост и копируем файлы
-> download_test_db.sh
 --------------------------------------------------------
 #### сумарный скрипт по mysql master и slave при условии установленных дистрибутивов до и после перезгрузки
 
@@ -169,9 +159,16 @@ sudo apt update; sudo apt upgrade -y;
 
 > slave.sh slave1.sh
 
+-------------------------------------------------------
 
+#### Переходим на домашний хост и копируем файлы
+> download_test_db.sh
+
+--------------------------------------------------------
+-----------------------------------------------------
 #### Конфигурируем сервер monitoring and loging
-
+--------------------------------------------------------
+-----------------------------------------------------
 #### Сервер  elk
 > install_elk.sh (Устанавливаем prometheus и зависимости для grafana, загружаем дистрибутивы для elk)
 

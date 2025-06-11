@@ -3,7 +3,7 @@
 
 cd home/user/basic_ununtu_diplom
 
-bash mysql_master_conf.sh
+mysql_source.sh
 
 bash mysql_get_public_key.sh
 
