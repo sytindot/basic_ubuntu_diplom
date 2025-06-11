@@ -1,6 +1,6 @@
 #!/bin/bash
 
 
-> apt -y install mysql-server-8.0 
+apt  install mysql-server-8.0 -y
 hostnamectl set-hostname master
 reboot
