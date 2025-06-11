@@ -81,14 +81,14 @@ sudo apt update; sudo apt upgrade -y;
 
 > nginx_conf.sh
 
+#### сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов
+> nginx.sh 
 
 #### Переходим на домашний хост и копируем файлы
 > download_filebeat.sh
 
 #### на nginx
 > install_filebeat.sh
-#### сумарный скрипт по nginx и  apache2 при условии установленных дистрибутивов
-> nginx.sh 
 -------------------------------------------------------------
 -------------------------------------------------------------
 #### Выполняем clon Engix Sample на VM
@@ -164,6 +164,9 @@ sh (применяем настройки сети)
 > download_test_db.sh
 #### Переходим на mysql-master
 > mysql_download_bd.sh
+> mysql_create_full_dump.sh
+> mysql_dump_by_tables.sh
+> mysql_upload_from_slave.sh
 --------------------------------------------------------
 -----------------------------------------------------
 #### Конфигурируем сервер monitoring and loging
