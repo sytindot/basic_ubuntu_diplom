@@ -53,7 +53,8 @@
 
 sudo apt update; sudo apt upgrade -y;
 ---------------------------------------------------------------
-#### Выполняем clon Ubuntu_Sample  
+#### Выполняем clon Nginx Empty
+
 > Name: Nginx
 
 > MAC Address Policy: Generate new MAC address for all network adapters
@@ -63,6 +64,12 @@ sudo apt update; sudo apt upgrade -y;
 > install_nginx.sh 
 
 -----------------------------------------------------------
+#### Выполняем clon Nginx Empty
+
+> Name: Nginx
+
+> MAC Address Policy: Generate new MAC address for all network adapters
+
 #### Конфигурируем сервер nginx
 > netplan_nginx.sh (применяем настройки сети)
 
