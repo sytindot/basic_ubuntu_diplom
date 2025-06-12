@@ -1,13 +1,9 @@
 Демонстрация аварийного востановления вэб стенда с настройкой реверс прокси вэб сервера,  мастер-слейв репликацией базы данных, централизованным сбором логов и системой визуализации накопленной статистики.
 
-## Порядок работы:
-
-### 1 web server
-
 ## Готовим образ для mysql и ngin
 
 #### Выполняем clon Ubuntu_Sample на VM
-> Name: Ubunty Sample
+> Name: Ubunty Empty
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
