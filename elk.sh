@@ -13,14 +13,14 @@ hostnamectl set-hostname elk
 reboot
 
 
-cd /home/user
-unzip elk_8.9_deb-224190-ae521e.zip
+#cd /home/user
+#unzip elk_8.9_deb-224190-ae521e.zip
 
-bash install_grafana.sh
+#bash install_grafana.sh
 
-bash install_elastic.sh
+#bash install_elastic.sh
 
-bash install_kibana.sh
+#bash install_kibana.sh
 
-bash install_logstash.sh
+#bash install_logstash.sh
 
