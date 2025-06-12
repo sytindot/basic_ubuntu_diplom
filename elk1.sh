@@ -15,7 +15,7 @@
 
 cd /home/user
 unzip elk_8.9_deb-224190-ae521e.zip
-cd /home/user/elk_8.9-deb
+cd /home/user/basic_ubuntu_diplom
 bash install_grafana.sh
 
 bash install_elastic.sh
