@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 #apt install default-jdk -y
 #apt install nginx -y
 #apt install unzip -y
@@ -18,9 +18,12 @@ unzip elk_8.9_deb-224190-ae521e.zip
 cd /home/user/basic_ubuntu_diplom
 bash install_grafana.sh
 
+cd /home/user/basic_ubuntu_diplom
 bash install_elastic.sh
 
+cd /home/user/basic_ubuntu_diplom
 bash install_kibana.sh
 
+cd /home/user/basic_ubuntu_diplom
 bash install_logstash.sh
 
