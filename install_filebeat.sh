@@ -6,5 +6,5 @@ cd /home/user/basic_ubuntu_diplom
 cp filebeat.yml /etc/filebeat
 systemctl enable --now filebeat.service
 systemctl daemon-reload
-systemctl start filebeat.service
+systemctl restart filebeat.service
 
