@@ -1,4 +1,4 @@
-#!/bin/bash +x
+#!/bin/bash 
 
 netplan_file='netplan/9999-network4.yaml'
 cd /home/user/basic_ubuntu_diplom
@@ -13,11 +13,11 @@ if [ -f "$netplan_file" ]; then
 	cp $netplan_file /etc/netplan
 	if (( "$?" == 0 )); then
 		netplan apply
-		sleep 5
+		#sleep 5
 		netplan generate
 	fi
 
-#	echo $netplan_file "успешно скопирован"
+	echo $netplan_file "успешно скопирован"
 else 
 	echo "Обибка при копировании файла $netplan_file" 
 fi
