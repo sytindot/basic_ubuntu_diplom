@@ -49,7 +49,7 @@
 
 sudo apt update; sudo apt upgrade -y;
 ---------------------------------------------------------------
-#### Выполняем clon Nginx Sample
+#### Выполняем clon Ubuntu Empty
 
 > Name: Nginx Empty
 
@@ -87,8 +87,8 @@ sudo apt update; sudo apt upgrade -y;
 > install_filebeat.sh
 -------------------------------------------------------------
 -------------------------------------------------------------
-#### Выполняем clon Engix Sample на VM
-> Name: Master Empty
+#### Выполняем clon Ubuntu Empty на VM
+> Name: Mysql Empty
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
