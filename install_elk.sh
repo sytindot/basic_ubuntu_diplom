@@ -4,7 +4,7 @@
 apt install default-jdk -y
 #apt install nginx -y
 apt install unzip -y
-apt install prometheus prometheus-node-exporter
+apt install prometheus prometheus-node-exporter -y
 apt-get install -y adduser libfontconfig1 musl
 
 cd /home/user
