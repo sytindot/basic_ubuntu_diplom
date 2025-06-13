@@ -11,6 +11,6 @@ systemctl status kibana.service
 ss -nltp | grep 5601
 
 echo "....status logstesh...."
-systemctl status logstesh.service
+systemctl status logstash.service
 ss -nltp | grep 5400
 
