@@ -23,5 +23,5 @@ systemctl enable --now elasticsearch
 systemctl daemon-reload
 
 sudo systemctl restart  prometheus.service prometheus-node-exporter.service grafana-server.service kibana.service logstash.service elasticsearch.service
-#reboot
+reboot
 
