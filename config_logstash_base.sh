@@ -5,8 +5,9 @@
 #dpkg -i logstash-8.9.1-amd64.deb
 cd /home/user/basic_ubuntu_diplom
 cp logstash.yml /etc/logstash
-cp logstash-nginx-es1.conf /etc/logstash/conf.d
-systemctl enable --now logstash.service
+cd logstash/base/
+cp logstash-nginx-es.conf /etc/logstash/conf.d
 systemctl daemon-reload
+systemctl enable --now logstash.service
 systemctl restart logstash.service
 

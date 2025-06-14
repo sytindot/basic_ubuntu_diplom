@@ -6,7 +6,7 @@
 cd /home/user/basic_ubuntu_diplom
 cp logstash.yml /etc/logstash
 cp logstash-nginx-es.conf /etc/logstash/conf.d
-systemctl enable --now logstash.service
 systemctl daemon-reload
+systemctl enable --now logstash.service
 systemctl restart logstash.service
 
