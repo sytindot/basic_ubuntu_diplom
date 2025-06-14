@@ -176,13 +176,16 @@ sh (применяем настройки сети)
 > install_grafana.sh( monitoring готов http://192.168.0.223:3000 )
 
 > install_elastic.sh
-
+> config_elastic_base.sh
+> config_elastic.sh
 > install_kibana.sh 
-
+> config_kibana.sh
+sudo /usr/share/kibana/bin/kibana-verification-code
 > install_logstash.sh
-
-> install_filebeat.sh
-
+> config_lobstash.sh
+> install_filebeat.sh( на nginx, если еще не сделали)
+--------------------------------------------------------------
+#### не хочет работать
 > elk.sh( суммарный скрипт по elk ; filebeat устанавиваем на nginx сервер)
 
 
