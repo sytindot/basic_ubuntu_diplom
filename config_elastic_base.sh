@@ -9,5 +9,4 @@ cd /home/user/basic_ubuntu_diplom
 systemctl daemon-reload
 systemctl enable --now elasticsearch.service
 systemctl restart elasticsearch.service
-curl http://localhost:9200
 
