@@ -83,7 +83,7 @@ sudo apt update; sudo apt upgrade -y;
 
 ## Подготовка сервера для mysql
 
-#### Выполняем clon Ubuntu Empty на VM
+#### Выполняем clon Ubuntu_Sample на VM
 
 > Name: Mysql Empty
 
@@ -95,7 +95,7 @@ sudo apt update; sudo apt upgrade -y;
 
 > git pull
 
-> master_empty.sh
+> mysql_empty.sh
 
 ## Настройка серверов Master и Slave
 
@@ -112,7 +112,7 @@ sudo apt update; sudo apt upgrade -y;
 
 #### сумарный скрипт по mysql master при условии установленных дистрибутивов до и после перезгрузки
 
-> master.sh master1.sh:
+> master.sh #master1.sh:
 --------------------------------------
 > netplan_master.sh (применяем настройки сети)
 
