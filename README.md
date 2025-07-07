@@ -112,7 +112,7 @@ sudo apt update; sudo apt upgrade -y;
 
 #### сумарный скрипт по mysql master при условии установленных дистрибутивов до и после перезгрузки
 
-> master.sh #master1.sh:
+> master.sh master1.sh:
 --------------------------------------
 > netplan_master.sh (применяем настройки сети)
 
