@@ -51,7 +51,7 @@ sudo apt update; sudo apt upgrade -y;
 --------------------------------------
 ## Настройка сервера nginx
 
-#### Выполняем clon Ubuntu Empty
+#### Выполняем clon Ubuntu_Sample
 
 > Name: Nginx
 
