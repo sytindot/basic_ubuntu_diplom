@@ -85,7 +85,7 @@ sudo apt update; sudo apt upgrade -y;
 
 #### Выполняем clon Ubuntu_Sample на VM
 
-> Name: Mysql Empty
+> Name: Master
 
 > MAC Address Policy: Generate new MAC address for all network adapters
 
@@ -93,22 +93,18 @@ sudo apt update; sudo apt upgrade -y;
 
 > cd ~/basic_ununtu_diplom
 
-> git pull
-
 > mysql_empty.sh
 
 ## Настройка серверов Master и Slave
 
-#### Выполняем clone Master Empty на VM
 
-> Name: master
 
-#### Выполняем clone Master Empty на VM
-> Name: clone
+#### Выполняем clone Master на VM
+> Name: Clone
 
 > ssh: 2244
 
-## Конфигурируем сервер mysql master
+## Конфигурируем сервер  master
 
 #### сумарный скрипт по mysql master при условии установленных дистрибутивов до и после перезгрузки
 
@@ -123,7 +119,7 @@ sudo apt update; sudo apt upgrade -y;
 
 ## Конфигурируем сервер mysql slave
 
-> ssh user@localhost -p 2234 
+> ssh user@localhost -p 2244 
 
 > cd ~/basic_ubuntu_diplom
 
@@ -158,6 +154,7 @@ sudo apt update; sudo apt upgrade -y;
 > mysql_dump_by_tables.sh
 
 > mysql_upload_from_slave.sh
+-------------------------------------------------
 
 ## Конфигурируем сервер monitoring and loging
 

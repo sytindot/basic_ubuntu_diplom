@@ -1,3 +1,5 @@
 #!/bin/bash
 
-mysql < /home/user/test_db/employees.sql
+sudo -i
+cd /home/user/test_db 
+mysql < employees.sql
