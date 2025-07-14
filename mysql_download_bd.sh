@@ -1,5 +1,5 @@
 #!/bin/bash
 
-sudo -i
+#sudo -i
 cd /home/user/test_db 
 mysql < employees.sql
